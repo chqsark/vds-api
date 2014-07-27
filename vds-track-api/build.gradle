@@ -23,9 +23,8 @@ dependencies {
         mavenCentral()
     }
     
+    compile project(':vds-common-api')
     compile 'org.springframework.boot:spring-boot-starter-web'
-    
-    runtime project(':vds-common-api')
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

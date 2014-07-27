@@ -23,11 +23,11 @@ dependencies {
         mavenCentral()
     }
     
-    runtime 'org.springframework.boot:spring-boot-starter-web'
-    runtime 'org.springframework.boot:spring-boot-starter-actuator'
-    runtime project(':vds-track-api')
-    runtime project(':vds-tag-api')
-    runtime project(':vds-report-api')
+    compile project(':vds-track-api')
+    compile project(':vds-tag-api')
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile project(':vds-report-api')
 }
 
 bootRepackage {
