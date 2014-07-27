@@ -1,0 +1,39 @@
+ext {
+    javaVersion = '1.8'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+    
+    runtime 'org.springframework.boot:spring-boot-starter-web'
+    runtime 'org.springframework.boot:spring-boot-starter-actuator'
+    runtime project(':vds-track-api')
+    runtime project(':vds-tag-api')
+    runtime project(':vds-report-api')
+}
+
+bootRepackage {
+    mainClass = 'vds.Application'
+	classifier = 'exec'
+}
+bootRun {
+    main = 'vds.Application'
+}

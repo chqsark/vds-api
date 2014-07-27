@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar vds-api-all/build/libs/vds-api-all-0.1.0-SNAPSHOT-exec.jar
