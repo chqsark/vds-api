@@ -6,7 +6,7 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    
+
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE'
     }
@@ -22,15 +22,15 @@ dependencies {
     repositories {
         mavenCentral()
     }
-    
+
     compile project(':vds-common-api')
-    compile 'org.springframework.boot:spring-boot-starter-web'    
+    compile 'org.springframework.boot:spring-boot-starter-web'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 bootRepackage {
     mainClass = 'vds.Application'
-	classifier = 'exec'
+    classifier = 'exec'
 }
 

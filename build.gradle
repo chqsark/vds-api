@@ -1,5 +1,5 @@
-subprojects{
+subprojects {
 }
 
-task stage(dependsOn: ':vds-api-all:build'){
+task stage(dependsOn: ':vds-api-all:build') {
 }
