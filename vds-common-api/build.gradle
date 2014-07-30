@@ -5,11 +5,20 @@ ext {
 buildscript {
     repositories {
         mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
     }
     
     dependencies {
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE'
     }
+}
+
+configure(allprojects) {
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'propdeps-eclipse'
 }
 
 apply plugin: 'java'
@@ -23,7 +32,11 @@ dependencies {
         mavenCentral()
     }
     
-    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    
+    optional 'org.apache.tomcat.embed:tomcat-embed-core'
+    optional 'org.eclipse.jetty:jetty-webapp'
+    optional 'org.eclipse.jetty:jetty-servlets:8.1.15.v20140411'
     
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
