@@ -36,9 +36,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-autoconfigure'
 
     optional('org.apache.tomcat.embed:tomcat-embed-core')
-    optional('org.eclipse.jetty:jetty-server:' + jettyVersion)
-    optional('org.eclipse.jetty:jetty-util:' + jettyVersion)
-    optional('org.eclipse.jetty:jetty-servlets:' + jettyVersion)
+    optional("org.eclipse.jetty:jetty-servlets:$jettyVersion")
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

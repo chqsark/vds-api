@@ -1,5 +1,6 @@
 .gradle
 build/
+bin/
 
 .idea/
 *.iml
@@ -7,6 +8,5 @@ build/
 .classpath
 .project
 .settings/
-bin/
 
 .DS_Store
