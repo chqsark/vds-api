@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE'
     }
 }
 
