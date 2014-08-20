@@ -1,0 +1,34 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/kafka
+		http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd">
+
+    <int:gateway id="tracker"
+                 service-interface="vds.track.api.Tracker"
+                 default-request-channel="kafkaOutboundChannel">
+    <int:method name="track">
+            <int:header name="topic" value="${kafka.topic}"/>
+        </int:method>
+    </int:gateway>
+
+    <int:channel id="kafkaOutboundChannel"/>
+
+    <int-kafka:outbound-channel-adapter id="kafkaOutboundAdapter"
+                                        kafka-producer-context-ref="kafkaProducerContext"
+                                        channel="kafkaOutboundChannel">
+    </int-kafka:outbound-channel-adapter>
+
+    <int-kafka:producer-context id="kafkaProducerContext">
+        <int-kafka:producer-configurations>
+            <int-kafka:producer-configuration broker-list="${kafka.broker}"
+                                              topic=".*"
+                                              compression-codec="gzip"/>
+        </int-kafka:producer-configurations>
+    </int-kafka:producer-context>
+</beans>

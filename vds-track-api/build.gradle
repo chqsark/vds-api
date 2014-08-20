@@ -21,6 +21,7 @@ targetCompatibility = javaVersion
 dependencies {
     repositories {
         mavenCentral()
+        maven { url 'http://repo.spring.io/libs-milestone' }
     }
 
     compile project(':vds-common-api')
@@ -28,6 +29,12 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-websocket'
     compile 'org.springframework:spring-messaging'
+
+    compile('org.springframework.integration:spring-integration-kafka:1.0.0.M1') {
+        exclude module: 'jms'
+        exclude module: 'jmxtools'
+        exclude module: 'jmxri'
+    }
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
