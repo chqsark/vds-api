@@ -34,7 +34,7 @@ dependencies {
         exclude module: 'jms'
         exclude module: 'jmxtools'
         exclude module: 'jmxri'
-        exclude module: 'log4j-over-slf4j'
+        exclude module: 'slf4j-simple'
         exclude module: 'log4j'
     }
 
