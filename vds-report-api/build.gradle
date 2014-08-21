@@ -23,7 +23,7 @@ dependencies {
         mavenCentral()
     }
 
-    compile 'org.scala-lang:scala-library:2.11.2'
+    compile 'org.scala-lang:scala-library:2.10.1'
 
     compile project(':vds-common-api')
     compile 'org.springframework.boot:spring-boot-starter-web'
