@@ -1,5 +1,5 @@
 ext {
-    javaVersion = '1.8'
+    javaVersion = '1.7'
     jettyVersion = '8.1.15.v20140411'
 }
 
@@ -22,7 +22,7 @@ configure(allprojects) {
     apply plugin: 'propdeps-eclipse'
 }
 
-apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: 'spring-boot'
 
 sourceCompatibility = javaVersion
@@ -32,6 +32,8 @@ dependencies {
     repositories {
         mavenCentral()
     }
+
+    compile 'org.scala-lang:scala-library:2.10.1'
 
     compile 'org.springframework.boot:spring-boot-autoconfigure'
 
