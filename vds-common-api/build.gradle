@@ -22,7 +22,7 @@ configure(allprojects) {
     apply plugin: 'propdeps-eclipse'
 }
 
-apply plugin: 'scala'
+apply plugin: 'java'
 apply plugin: 'spring-boot'
 
 sourceCompatibility = javaVersion
@@ -32,8 +32,6 @@ dependencies {
     repositories {
         mavenCentral()
     }
-
-    compile 'org.scala-lang:scala-library:2.10.1'
 
     compile 'org.springframework.boot:spring-boot-autoconfigure'
 
