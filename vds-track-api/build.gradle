@@ -12,7 +12,6 @@ buildscript {
     }
 }
 
-apply plugin: 'scala'
 apply plugin: 'spring-boot'
 
 sourceCompatibility = javaVersion
@@ -23,8 +22,6 @@ dependencies {
         mavenCentral()
         maven { url 'http://repo.spring.io/libs-milestone' }
     }
-
-    compile 'org.scala-lang:scala-library:2.10.1'
 
     compile project(':vds-common-api')
 
