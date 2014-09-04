@@ -33,12 +33,10 @@ dependencies {
         mavenCentral()
     }
 
-    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
 
     optional('org.apache.tomcat.embed:tomcat-embed-core')
     optional("org.eclipse.jetty:jetty-servlets:$jettyVersion")
-
-    runtime 'org.springframework.boot:spring-boot-starter-actuator'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
