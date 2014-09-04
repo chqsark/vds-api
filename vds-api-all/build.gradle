@@ -26,8 +26,6 @@ dependencies {
 
     compile project(':vds-track-api')
     compile project(':vds-tag-api')
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile project(':vds-report-api')
 }
 

@@ -13,8 +13,8 @@
                  service-interface="vds.track.api.Tracker"
                  default-request-channel="kafkaOutboundChannel">
     <int:method name="track">
-            <int:header name="topic" value="${kafka.topic}"/>
-        </int:method>
+        <int:header name="topic" value="${kafka.topic:dom}"/>
+    </int:method>
     </int:gateway>
 
     <int:channel id="kafkaOutboundChannel"/>
@@ -26,7 +26,7 @@
 
     <int-kafka:producer-context id="kafkaProducerContext">
         <int-kafka:producer-configurations>
-            <int-kafka:producer-configuration broker-list="${kafka.broker}"
+            <int-kafka:producer-configuration broker-list="${kafka.broker:localhost:9092}"
                                               topic=".*"
                                               compression-codec="gzip"/>
         </int-kafka:producer-configurations>
