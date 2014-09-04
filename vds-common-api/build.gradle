@@ -1,5 +1,5 @@
 ext {
-    javaVersion = '1.7'
+    javaVersion = '1.8'
     jettyVersion = '8.1.15.v20140411'
 }
 
