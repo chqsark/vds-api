@@ -1,6 +1,7 @@
 ext {
     javaVersion = '1.8'
     jettyVersion = '8.1.15.v20140411'
+    postgresqlVersion = '9.3-1102-jdbc4'
 }
 
 buildscript {
@@ -33,10 +34,14 @@ dependencies {
         mavenCentral()
     }
 
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    runtime "org.hsqldb:hsqldb"
+    runtime "org.postgresql:postgresql:$postgresqlVersion"
 
-    optional('org.apache.tomcat.embed:tomcat-embed-core')
-    optional("org.eclipse.jetty:jetty-servlets:$jettyVersion")
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    optional 'org.apache.tomcat.embed:tomcat-embed-core'
+    optional "org.eclipse.jetty:jetty-servlets:$jettyVersion"
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
