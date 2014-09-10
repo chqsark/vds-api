@@ -11,7 +11,7 @@ public class PageResourceTest extends AbstractResourceTest {
 
     @Test
     public void create() throws Exception {
-        Object[][] expects = {{"id", 2}};
+        Object[][] expects = {{"id", 50}};
         performPost("/pages", "{\"url\":\"/test_new\",\"tags\":[{\"selector\":\"img\"},{\"selector\":\"a\"}]}", expects);
     }
 

@@ -8,7 +8,8 @@ import java.util.Set;
 @Entity
 public class Page {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_page_id")
+    @SequenceGenerator(name = "seq_page_id", sequenceName = "seq_page_id")
     private Integer id;
 
     private String url;

@@ -3,6 +3,8 @@ databaseChangeLog:
       id: 1
       author: ktong
       changes:
+        - createSequence:
+            sequenceName: seq_page_id
         - createTable:
             tableName: page
             columns:
