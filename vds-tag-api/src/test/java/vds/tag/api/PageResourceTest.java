@@ -5,7 +5,7 @@ import org.junit.Test;
 public class PageResourceTest extends AbstractResourceTest {
     @Test
     public void findByUrl() throws Exception {
-        Object[][] expects = {{"url", "/test"}, {"tags[0].selector", "a[href='http://google.com']"}};
+        Object[][] expects = {{"url", "/test"}, {"tags[0].selector", "a[href=http://yahoo.com]"}};
         performGet("/pages?url=/test", expects);
     }
 
