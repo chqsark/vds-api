@@ -34,8 +34,10 @@ dependencies {
         mavenCentral()
     }
 
+    // TODO: find a way to remove hsqldb from final artifactory
     runtime "org.hsqldb:hsqldb"
     runtime "org.postgresql:postgresql:$postgresqlVersion"
+    runtime "org.liquibase:liquibase-core"
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -44,6 +46,7 @@ dependencies {
     optional "org.eclipse.jetty:jetty-servlets:$jettyVersion"
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'com.jayway.jsonpath:json-path'
 }
 
 bootRepackage {
