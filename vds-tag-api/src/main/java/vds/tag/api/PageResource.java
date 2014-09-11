@@ -1,6 +1,8 @@
 package vds.tag.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import vds.tag.domain.Page;
@@ -23,11 +25,13 @@ public class PageResource {
     }
 
     @RequestMapping
+    @Cacheable("pages")
     public Page findByUrl(@RequestParam("url") String url) {
         return pageRepository.findByUrl(url);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @CacheEvict(value = "pages", key = "'#page.url'")
     public void update(@PathVariable Integer id, @RequestBody Page page) {
         page.setId(id);
         pageRepository.save(page);

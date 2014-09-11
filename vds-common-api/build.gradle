@@ -35,10 +35,11 @@ dependencies {
     }
 
     // TODO: find a way to remove hsqldb from final artifactory
-    runtime "com.h2database:h2"
+    runtime 'com.h2database:h2'
     runtime "org.postgresql:postgresql:$postgresqlVersion"
-    runtime "org.flywaydb:flyway-core"
+    runtime 'org.flywaydb:flyway-core'
 
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 
