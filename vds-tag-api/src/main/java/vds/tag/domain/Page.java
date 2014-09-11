@@ -1,6 +1,9 @@
 package vds.tag.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -10,13 +13,17 @@ public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_page_id")
     @SequenceGenerator(name = "seq_page_id", sequenceName = "seq_page_id")
+    @Min(1)
     private Integer id;
 
+    @NotNull
+    @Size(min = 1)
     private String url;
 
     @ElementCollection
     @CollectionTable(name = "tag", joinColumns = @JoinColumn(name = "page_id"))
     @MapKeyColumn(name = "selector")
+    @Size(min = 1)
     private Set<Tag> tags = new HashSet<>();
 
 

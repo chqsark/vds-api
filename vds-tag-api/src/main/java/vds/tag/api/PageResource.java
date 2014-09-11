@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import vds.tag.domain.Page;
 import vds.tag.repository.PageRepository;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/pages")
 public class PageResource {
@@ -20,7 +22,7 @@ public class PageResource {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Page create(@RequestBody Page page) {
+    public Page create(@Valid @RequestBody Page page) {
         return pageRepository.save(page);
     }
 
@@ -32,7 +34,7 @@ public class PageResource {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @CacheEvict(value = "pages", key = "'#page.url'")
-    public void update(@PathVariable Integer id, @RequestBody Page page) {
+    public void update(@PathVariable Integer id, @Valid @RequestBody Page page) {
         page.setId(id);
         pageRepository.save(page);
     }
