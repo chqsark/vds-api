@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar vds-api-all/build/libs/vds-api-all-0.0.1-exec.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar vds-api-all/build/libs/vds-api-all-0.0.2-exec.jar
